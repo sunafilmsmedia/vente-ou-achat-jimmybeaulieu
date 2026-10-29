@@ -1,31 +1,35 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { DM_Sans, Instrument_Serif, Montserrat } from "next/font/google";
+import { Poppins, Tiro_Bangla } from "next/font/google";
 import MetaPixel from "@/components/MetaPixel";
 import Clarity from "@/components/Clarity";
 import { BRAND } from "@/lib/brand";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+// Poppins pour tout le texte principal (corps + gros titres, deux poids
+// différents) ; Tiro Bangla pour les détails (accents italiques, mots mis en
+// valeur, signature "Boosté par l'IA").
+const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight: ["400", "500"],
 });
 
-const instrumentSerif = Instrument_Serif({
+// Police d'affichage lourde — titres en gros bold majuscules.
+const poppinsDisplay = Poppins({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["700", "800", "900"],
+});
+
+const tiroBangla = Tiro_Bangla({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
   weight: "400",
   style: ["normal", "italic"],
-});
-
-// Police d'affichage lourde — titres en gros bold majuscules.
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  weight: ["700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -42,7 +46,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr-CA" className={`${dmSans.variable} ${instrumentSerif.variable} ${montserrat.variable}`}>
+    <html lang="fr-CA" className={`${poppins.variable} ${poppinsDisplay.variable} ${tiroBangla.variable}`}>
       <body className="min-h-screen antialiased">
         <MetaPixel />
         <Clarity />
