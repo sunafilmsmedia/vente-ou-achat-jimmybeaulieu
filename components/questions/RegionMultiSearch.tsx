@@ -68,7 +68,7 @@ export default function RegionMultiSearch({ value, onChange, max = 1, placeholde
                 rounded-full pl-4 pr-3 py-2 text-sm font-semibold
                 bg-gradient-to-br from-[var(--color-gold-soft)] to-[var(--color-gold)]
                 text-white
-                shadow-[0_10px_26px_-12px_rgba(140,17,25,0.55)]
+                shadow-[0_10px_26px_-12px_rgba(220,177,105,0.55)]
               "
             >
               {displayName(id)}

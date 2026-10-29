@@ -10,39 +10,39 @@
   --color-ink-800: #141414;
   --color-ink-700: #1f1f1f;
 
-  /* Thème SOMBRE — fond bleu / texte blanc / accent rouge FONCÉ (Jimmy
-     Beaulieu, RE/MAX). Rouge plus profond que le rouge vif RE/MAX par défaut,
-     pour distinguer ce déploiement des autres apps de la même famille.
-     brand-100/200 = textes blancs lisibles sur bleu ;
-     brand-300 = rouge foncé (micro-libellés, icônes) lisible sur bleu ;
-     brand-400..900 = surfaces bleues élevées (cartes, cercles). */
+  /* Thème SOMBRE — fond bleu marine / texte blanc / accent OR (Jimmy
+     Beaulieu, RE/MAX Royal Jordan). Reprend les couleurs exactes de sa
+     bannière officielle : navy #0c1341, or #dcb169.
+     brand-100/200 = textes blancs lisibles sur marine ;
+     brand-300 = or (micro-libellés, icônes) lisible sur marine ;
+     brand-400..900 = surfaces marine élevées (cartes, cercles). */
   --color-brand-50: #ffffff;
   --color-brand-100: #ffffff;
-  --color-brand-200: #e6ebf7;
-  --color-brand-300: #e04b56;
-  --color-brand-400: #1c3f8f;
-  --color-brand-500: #16327a;
-  --color-brand-600: #122a68;
-  --color-brand-700: #0d2156;
-  --color-brand-800: #0a1a44;
-  --color-brand-900: #061230;
+  --color-brand-200: #e9e4d8;
+  --color-brand-300: #dcb169;
+  --color-brand-400: #1a2458;
+  --color-brand-500: #131c48;
+  --color-brand-600: #0f173d;
+  --color-brand-700: #0c1341;
+  --color-brand-800: #090f33;
+  --color-brand-900: #050821;
 
-  /* Rouge foncé — accent de marque unique (nom de variable hérité, porte le rouge) */
-  --color-gold: #8c1119;
-  --color-gold-soft: #c41e2b;
+  /* Or — accent de marque unique, couleur exacte de la bannière RE/MAX Royal Jordan */
+  --color-gold: #dcb169;
+  --color-gold-soft: #e8c793;
 
-  --color-slate-accent: #8c1119;
-  --color-slate-soft: #c41e2b;
+  --color-slate-accent: #dcb169;
+  --color-slate-soft: #e8c793;
 
-  /* Textes secondaires — bleu-gris clairs lisibles sur fond bleu */
-  --color-slate-300: #cbd5f0;
-  --color-slate-400: #a3b3dc;
-  --color-slate-500: #7e8fc0;
-  --color-slate-600: #5a6a99;
+  /* Textes secondaires — gris-marine clairs lisibles sur fond marine */
+  --color-slate-300: #cdd2e8;
+  --color-slate-400: #9ca3c4;
+  --color-slate-500: #767ea0;
+  --color-slate-600: #4f5674;
 }
 
 html, body {
-  background: radial-gradient(ellipse at 50% -5%, #1b47ad 0%, #0c2b74 45%, #050f33 100%);
+  background: radial-gradient(ellipse at 50% -5%, #1a2458 0%, #0f173d 45%, #050821 100%);
   color: #ffffff;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -69,7 +69,7 @@ body {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
-  border: 1px solid rgba(140, 17, 25, 0.35);
+  border: 1px solid rgba(220, 177, 105, 0.35);
   box-shadow:
     0 30px 80px -30px rgba(0, 0, 0, 0.6),
     0 0 0 1px rgba(255, 255, 255, 0.04) inset;
@@ -88,7 +88,7 @@ body {
   line-height: 1.02;
 }
 
-/* AI shimmer — dégradé blanc/rouge foncé, lisible sur fond bleu */
+/* AI shimmer — dégradé blanc/or, lisible sur fond marine */
 @keyframes ai-shimmer {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
@@ -97,11 +97,11 @@ body {
   background-image: linear-gradient(
     90deg,
     #ffffff 0%,
-    #c41e2b 22%,
+    #dcb169 22%,
     #ffffff 44%,
-    #c41e2b 62%,
+    #dcb169 62%,
     #ffffff 82%,
-    #c41e2b 100%
+    #dcb169 100%
   );
   background-size: 200% auto;
   background-clip: text;
@@ -114,11 +114,11 @@ body {
   background-image: linear-gradient(
     90deg,
     #ffffff 0%,
-    #c41e2b 22%,
+    #dcb169 22%,
     #ffffff 44%,
-    #c41e2b 62%,
+    #dcb169 62%,
     #ffffff 82%,
-    #c41e2b 100%
+    #dcb169 100%
   );
   background-size: 200% auto;
   background-clip: text;

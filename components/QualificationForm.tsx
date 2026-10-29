@@ -215,8 +215,8 @@ export default function QualificationForm({ onComplete, onExit }: Props) {
                 px-6 sm:px-8 py-3 rounded-full text-sm font-medium
                 bg-gradient-to-b from-[var(--color-gold-soft)] to-[var(--color-gold)]
                 text-white font-semibold
-                shadow-[0_15px_40px_-10px_rgba(140,17,25,0.55)]
-                hover:shadow-[0_20px_50px_-10px_rgba(140,17,25,0.7)]
+                shadow-[0_15px_40px_-10px_rgba(220,177,105,0.55)]
+                hover:shadow-[0_20px_50px_-10px_rgba(220,177,105,0.7)]
                 disabled:opacity-50 disabled:cursor-not-allowed
                 transition-all
               "

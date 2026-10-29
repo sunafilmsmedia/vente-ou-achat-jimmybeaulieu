@@ -1,10 +1,11 @@
 # Vendre avant d'acheter… ou acheter avant de vendre ?
 
 App one-page de qualification de leads pour **Jimmy Beaulieu**, courtier
-immobilier résidentiel RE/MAX à Lachine (Montréal). Clonée de l'architecture
-`vente-ou-achat-maxbacon`. Next.js 15 (App Router, TS) · Tailwind v4 ·
-Framer Motion · déploiement Vercel. Thème **bleu / blanc / rouge foncé**
-(RE/MAX), mobile-first, français (tutoiement).
+immobilier résidentiel RE/MAX Royal Jordan à Lachine (Montréal). Clonée de
+l'architecture `vente-ou-achat-maxbacon`. Next.js 15 (App Router, TS) ·
+Tailwind v4 · Framer Motion · déploiement Vercel. Thème **bleu marine / blanc
+/ or** — couleurs exactes de sa bannière officielle RE/MAX Royal Jordan
+(navy `#0c1341`, or `#dcb169`), mobile-first, français (tutoiement).
 
 ## Concept
 
@@ -42,7 +43,7 @@ l'équité accumulée et la priorité de la personne.
    changer `logos.team` dans `lib/brand.ts` pour pointer vers le nouveau
    fichier.
 2. **Photo du secteur** — `components/HeroBackground.tsx` utilise pour
-   l'instant un dégradé bleu + une silhouette SVG générique d'horizon urbain
+   l'instant un dégradé marine + une silhouette SVG générique d'horizon urbain
    (pas de vraie photo de Lachine/Montréal). À remplacer par une photo locale
    (ex. le canal de Lachine) en suivant le modèle utilisé dans les autres
    apps de la famille (`eglise-sainte-julie.jpg` chez Max Bacon).
@@ -60,7 +61,8 @@ l'équité accumulée et la priorité de la personne.
 2. **`lib/regions.ts`** — la liste des villes/secteurs couverts (actuellement :
    Lachine et le Sud-Ouest / Ouest-de-l'Île de Montréal).
 3. **`public/`** — `jimmy-beaulieu-logo.svg` (logo personnel, placeholder),
-   `remax-logo-white.png` (logo RE/MAX officiel en blanc), `broker-1.svg`
+   `remax-royal-jordan-logo.png` (vrai logo officiel RE/MAX Royal Jordan,
+   version crème/transparente fournie par l'utilisateur), `broker-1.svg`
    (placeholder photo courtier — à remplacer par une vraie photo).
 4. **`.env.local`** (voir `.env.local.example`) — clés propres au déploiement :
    `ANTHROPIC_API_KEY`, `CRM_WEBHOOK_URL`, `NEXT_PUBLIC_SITE_URL`.

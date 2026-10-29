@@ -4,14 +4,17 @@
 //  (+ lib/regions.ts pour la liste des secteurs, + les images dans /public,
 //   + les variables d'environnement : voir .env.local.example)
 //
-//  Palette : bleu / blanc / rouge foncé. Les couleurs se règlent dans
-//  app/globals.css (bloc @theme) — cherche les variables --color-brand-*
-//  et --color-gold (nom hérité du template, porte maintenant le rouge).
+//  Palette : bleu marine / blanc / or. Reprend les couleurs exactes de la
+//  bannière RE/MAX Royal Jordan de Jimmy Beaulieu (navy #0c1341, or #dcb169).
+//  Les couleurs se règlent dans app/globals.css (bloc @theme) — cherche les
+//  variables --color-brand-* et --color-gold (nom hérité du template, porte
+//  maintenant l'or, comme dans le vrai branding cette fois).
 //
-//  Branding : Jimmy Beaulieu, courtier immobilier résidentiel RE/MAX
-//  (Lachine, Montréal). Branding personnel pas encore reçu — logo d'équipe
-//  en texte temporaire (public/jimmy-beaulieu-logo.svg), à remplacer dès
-//  réception du vrai logo.
+//  Branding : Jimmy Beaulieu, courtier immobilier résidentiel RE/MAX Royal
+//  Jordan (Lachine, Montréal). Logo officiel RE/MAX Royal Jordan reçu
+//  (public/remax-royal-jordan-logo.png). Logo personnel de Jimmy pas encore
+//  reçu — logo d'équipe en texte temporaire (public/jimmy-beaulieu-logo.svg),
+//  à remplacer dès réception.
 // ─────────────────────────────────────────────────────────────────────────
 
 export interface BrokerConfig {
@@ -100,11 +103,11 @@ export const BRAND: BrandConfig = {
       height: 64,
     },
     banner: {
-      // Logo officiel RE/MAX en blanc, directement sur le fond bleu (pas de pastille).
-      src: "/remax-logo-white.png",
-      alt: "RE/MAX — Agence immobilière",
-      width: 288,
-      height: 78,
+      // Logo officiel RE/MAX Royal Jordan (version crème/transparente), directement sur le fond marine.
+      src: "/remax-royal-jordan-logo.png",
+      alt: "RE/MAX Royal Jordan — Agence immobilière",
+      width: 280,
+      height: 126,
     },
   },
 

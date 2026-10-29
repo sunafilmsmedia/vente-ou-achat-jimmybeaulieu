@@ -1,8 +1,8 @@
-// Fond décoratif du hero — Jimmy Beaulieu (RE/MAX Lachine, Montréal).
-// Pas de photo du secteur pour l'instant : un dégradé bleu RE/MAX, surmonté
-// d'une silhouette SVG générique de Montréal (la Croix du Mont-Royal + un
-// horizon d'immeubles), très discrète, sous le dégradé — à remplacer par une
-// vraie photo du secteur (ex. le canal de Lachine) dès qu'on en a une.
+// Fond décoratif du hero — Jimmy Beaulieu (RE/MAX Royal Jordan, Lachine,
+// Montréal). Pas de photo du secteur pour l'instant : un dégradé marine
+// (couleur exacte de sa bannière officielle), surmonté d'une silhouette SVG
+// générique d'horizon urbain, très discrète, sous le dégradé — à remplacer
+// par une vraie photo du secteur (ex. le canal de Lachine) dès qu'on en a une.
 export default function HeroBackground() {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden">
@@ -47,7 +47,7 @@ export default function HeroBackground() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 50% -5%, #1b47ad 0%, #0c2b74 45%, #050f33 100%)",
+            "radial-gradient(ellipse at 50% -5%, #1a2458 0%, #0f173d 45%, #050821 100%)",
         }}
       />
       <div className="absolute -top-32 -right-24 w-[32rem] h-[32rem] rounded-full bg-[var(--color-gold)]/[0.14] blur-3xl" />

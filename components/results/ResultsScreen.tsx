@@ -180,7 +180,7 @@ export default function ResultsScreen({ analyze, answers, leadResult, onRestart 
                 bg-gradient-to-br from-[var(--color-gold-soft)] to-[var(--color-gold)]
                 flex items-center justify-center
                 font-serif text-white text-sm
-                shadow-[0_6px_18px_-4px_rgba(140,17,25,0.5)]
+                shadow-[0_6px_18px_-4px_rgba(220,177,105,0.5)]
               ">
                 {i + 1}
               </span>
