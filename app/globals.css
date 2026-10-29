@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-sans: "DM Sans", "Elza", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Montserrat", "Arial Black", "Helvetica Neue", sans-serif;
+
+  --color-ink-950: #000000;
+  --color-ink-900: #0a0a0a;
+  --color-ink-800: #141414;
+  --color-ink-700: #1f1f1f;
+
+  /* Thème SOMBRE — fond bleu / texte blanc / accent rouge FONCÉ (Jimmy
+     Beaulieu, RE/MAX). Rouge plus profond que le rouge vif RE/MAX par défaut,
+     pour distinguer ce déploiement des autres apps de la même famille.
+     brand-100/200 = textes blancs lisibles sur bleu ;
+     brand-300 = rouge foncé (micro-libellés, icônes) lisible sur bleu ;
+     brand-400..900 = surfaces bleues élevées (cartes, cercles). */
+  --color-brand-50: #ffffff;
+  --color-brand-100: #ffffff;
+  --color-brand-200: #e6ebf7;
+  --color-brand-300: #e04b56;
+  --color-brand-400: #1c3f8f;
+  --color-brand-500: #16327a;
+  --color-brand-600: #122a68;
+  --color-brand-700: #0d2156;
+  --color-brand-800: #0a1a44;
+  --color-brand-900: #061230;
+
+  /* Rouge foncé — accent de marque unique (nom de variable hérité, porte le rouge) */
+  --color-gold: #8c1119;
+  --color-gold-soft: #c41e2b;
+
+  --color-slate-accent: #8c1119;
+  --color-slate-soft: #c41e2b;
+
+  /* Textes secondaires — bleu-gris clairs lisibles sur fond bleu */
+  --color-slate-300: #cbd5f0;
+  --color-slate-400: #a3b3dc;
+  --color-slate-500: #7e8fc0;
+  --color-slate-600: #5a6a99;
+}
+
+html, body {
+  background: radial-gradient(ellipse at 50% -5%, #1b47ad 0%, #0c2b74 45%, #050f33 100%);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Surface bleue givrée (thème sombre) */
+@utility glass-card {
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 24px 60px -28px rgba(0, 0, 0, 0.55),
+    0 1px 0 rgba(255, 255, 255, 0.05) inset;
+}
+
+@utility glass-card-light {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(140, 17, 25, 0.35);
+  box-shadow:
+    0 30px 80px -30px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* Titre d'affichage — gros bold majuscules large */
+@utility display-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  line-height: 1.02;
+}
+
+/* AI shimmer — dégradé blanc/rouge foncé, lisible sur fond bleu */
+@keyframes ai-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.ai-shimmer {
+  background-image: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #c41e2b 22%,
+    #ffffff 44%,
+    #c41e2b 62%,
+    #ffffff 82%,
+    #c41e2b 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: ai-shimmer 8s linear infinite;
+}
+.ai-shimmer-fast {
+  background-image: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #c41e2b 22%,
+    #ffffff 44%,
+    #c41e2b 62%,
+    #ffffff 82%,
+    #c41e2b 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: ai-shimmer 2.5s linear infinite;
+}
+
+/* Pulse dot */
+@keyframes soft-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: soft-pulse 1.8s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+/* Scrollbar discrète */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255, 0.18);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255, 0.3); }
+
+/* Inputs sans bordures par défaut */
+input, textarea, select {
+  background: transparent;
+  outline: none;
+  border: none;
+}
+input:focus, textarea:focus, select:focus { outline: none; }
