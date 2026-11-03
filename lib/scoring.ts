@@ -7,8 +7,8 @@
 // score proche de 0 signifie que les deux options sont coordonnées de front
 // ("simultane").
 //
-// Les 3 facteurs financiers (besoin de l'argent de la vente, capacité à
-// porter deux hypothèques, économies indépendantes) pèsent le plus lourd —
+// Les 2 facteurs financiers (besoin de l'argent de la vente, capacité à
+// porter deux hypothèques) pèsent le plus lourd —
 // c'est ce qui détermine réellement si on PEUT acheter avant de vendre.
 // Le reste (équité, priorité) affine la recommandation.
 // ============================================================================
@@ -63,19 +63,6 @@ export function computeScoring(answers: Answers): ScoringResult {
       break;
     case "ne_sais_pas":
       add(0, "Tu n'es pas certain(e) de pouvoir porter deux propriétés", "neutre");
-      break;
-  }
-
-  // ── Économies indépendantes de la vente ───────────────────────────────────
-  switch (answers.hasSavings) {
-    case "oui":
-      add(-14, "Tu as des économies disponibles, indépendantes de la vente de ta propriété", "acheter");
-      break;
-    case "non":
-      add(14, "Tu n'as pas d'économies en dehors de la vente de ta propriété actuelle", "vendre");
-      break;
-    case "prefere_ne_pas_repondre":
-      add(0, "Ta situation d'épargne reste à valider avec un courtier", "neutre");
       break;
   }
 

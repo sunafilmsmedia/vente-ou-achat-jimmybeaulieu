@@ -28,7 +28,6 @@ const STEP_NAMES: Record<string, string> = {
   ownershipDuration: "anciennete_proprietaire",
   needsSaleMoney: "besoin_argent_vente",
   canCarryTwoMortgages: "capacite_deux_hypotheques",
-  hasSavings: "economies",
   priority: "priorite",
   fullName: "nom",
   email: "courriel",
@@ -45,7 +44,6 @@ const CHOICE_FIELDS = new Set([
   "ownershipDuration",
   "needsSaleMoney",
   "canCarryTwoMortgages",
-  "hasSavings",
   "priority",
 ]);
 
@@ -302,14 +300,6 @@ function QuestionRenderer({ question, answers, onUpdate }: RendererProps) {
           choices={choices!}
           value={answers.canCarryTwoMortgages}
           onChange={(v) => onUpdate({ canCarryTwoMortgages: v as Answers["canCarryTwoMortgages"] }, !!autoAdvance)}
-        />
-      );
-    case "hasSavings":
-      return (
-        <ChoiceQuestion
-          choices={choices!}
-          value={answers.hasSavings}
-          onChange={(v) => onUpdate({ hasSavings: v as Answers["hasSavings"] }, !!autoAdvance)}
         />
       );
     case "priority":

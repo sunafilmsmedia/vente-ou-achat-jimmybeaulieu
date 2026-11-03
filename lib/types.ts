@@ -51,8 +51,6 @@ export type CanCarryTwoMortgages =
   | "non"
   | "ne_sais_pas";
 
-export type HasSavings = "oui" | "non" | "prefere_ne_pas_repondre";
-
 export type Priority =
   | "meilleur_prix"
   | "maison_parfaite"
@@ -81,7 +79,6 @@ export interface Answers {
   // ── Étape 3 — Ta situation financière ───────────────────────────────────
   needsSaleMoney?: NeedsSaleMoney;
   canCarryTwoMortgages?: CanCarryTwoMortgages;
-  hasSavings?: HasSavings;
 
   // ── Étape 4 — Tes priorités ─────────────────────────────────────────────
   priority?: Priority;

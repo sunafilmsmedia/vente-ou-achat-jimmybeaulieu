@@ -104,7 +104,6 @@ export async function POST(req: Request) {
     // Situation financière
     needsSaleMoney: answers.needsSaleMoney ?? "",
     canCarryTwoMortgages: answers.canCarryTwoMortgages ?? "",
-    hasSavings: answers.hasSavings ?? "",
 
     // Priorité
     priority: answers.priority ?? "",
