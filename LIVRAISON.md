@@ -46,9 +46,8 @@ indépendantes), affinés par l'équité accumulée et la priorité de la person
    apps de la famille (`eglise-sainte-julie.jpg` chez Max Bacon).
 3. **Photo du courtier** — `public/broker-1.svg` est un placeholder
    générique, à remplacer par une vraie photo de Jimmy Beaulieu.
-4. **Meta Pixel** — vide par défaut dans `components/MetaPixel.tsx`
-   (`PIXEL_ID`), à remplir au déploiement (jamais réutiliser l'ID d'une autre
-   app).
+4. ~~**Meta Pixel**~~ — fait : « Pixel de Jimmy » (`1171056585586674`)
+   dans `components/MetaPixel.tsx`.
 5. **Clarity Project** — vide par défaut dans `components/Clarity.tsx`.
 
 ## Pour rebrander à un courtier précis — 4 endroits
@@ -64,9 +63,10 @@ indépendantes), affinés par l'équité accumulée et la priorité de la person
 4. **`.env.local`** (voir `.env.local.example`) — clés propres au déploiement :
    `ANTHROPIC_API_KEY`, `CRM_WEBHOOK_URL`, `NEXT_PUBLIC_SITE_URL`.
 
-Meta Pixel et Clarity Project sont vides par défaut dans
-`components/MetaPixel.tsx` / `components/Clarity.tsx` — à remplir au
-déploiement (jamais réutiliser l'ID d'une autre app).
+Meta Pixel : `1171056585586674` (« Pixel de Jimmy ») dans
+`components/MetaPixel.tsx`. Clarity Project est vide par défaut dans
+`components/Clarity.tsx` — à remplir au déploiement (jamais réutiliser l'ID
+d'une autre app).
 
 ## Développement
 

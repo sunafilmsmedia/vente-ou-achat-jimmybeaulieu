@@ -5,8 +5,8 @@ import Script from "next/script";
 import { captureFbclid } from "@/lib/attribution";
 
 // Pixel Meta — Jimmy Beaulieu (vente-ou-achat-jimmybeaulieu).
-// Vide par défaut — à remplir au déploiement (jamais réutiliser l'ID d'une autre app).
-const PIXEL_ID = "";
+// Dataset « Pixel de Jimmy » (BM Jimmy Beaulieu Compte Business).
+const PIXEL_ID = "1171056585586674";
 
 declare global {
   interface Window {
