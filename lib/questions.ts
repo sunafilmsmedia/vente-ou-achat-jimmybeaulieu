@@ -9,10 +9,7 @@ export type QuestionId =
   | "ownershipDuration"
   | "needsSaleMoney"
   | "canCarryTwoMortgages"
-  | "priority"
-  | "fullName"
-  | "email"
-  | "phone";
+  | "priority";
 
 export type QuestionKind = "choice" | "regions" | "text";
 
@@ -33,11 +30,6 @@ export interface QuestionDef {
   // kind "regions" seulement — combien de secteurs maximum (défaut : 1).
   maxRegions?: number;
   regionsPlaceholder?: string;
-  // kind "text" seulement.
-  inputType?: "text" | "email" | "tel";
-  placeholder?: string;
-  autoComplete?: string;
-  helper?: string;
 }
 
 export const QUESTIONS: QuestionDef[] = [
@@ -159,34 +151,6 @@ export const QUESTIONS: QuestionDef[] = [
     ],
   },
 
-  // ── Coordonnées ───────────────────────────────────────────────────────────
-  {
-    id: "fullName",
-    kind: "text",
-    title: "Quel est ton nom complet ?",
-    subtitle: "Pour savoir à qui s'adresser.",
-    inputType: "text",
-    autoComplete: "name",
-    placeholder: "Marie Tremblay",
-  },
-  {
-    id: "email",
-    kind: "text",
-    title: "Quel est ton courriel ?",
-    subtitle: "C'est là que tu recevras ta stratégie.",
-    inputType: "email",
-    autoComplete: "email",
-    placeholder: "marie@exemple.ca",
-  },
-  {
-    id: "phone",
-    kind: "text",
-    title: "Quel est ton numéro de téléphone ?",
-    subtitle: "Pour qu'un courtier puisse te joindre rapidement.",
-    inputType: "tel",
-    autoComplete: "tel",
-    placeholder: "(514) 555-0123",
-  },
 ];
 
 export function getVisibleQuestions(answers: Answers): QuestionDef[] {
@@ -204,8 +168,5 @@ export function isAnswered(q: QuestionDef, a: Answers): boolean {
     case "needsSaleMoney": return !!a.needsSaleMoney;
     case "canCarryTwoMortgages": return !!a.canCarryTwoMortgages;
     case "priority": return !!a.priority;
-    case "fullName": return !!(a.fullName ?? "").trim();
-    case "email": return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((a.email ?? "").trim());
-    case "phone": return (a.phone ?? "").replace(/\D/g, "").length >= 10;
   }
 }

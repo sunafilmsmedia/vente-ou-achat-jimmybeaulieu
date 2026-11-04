@@ -82,11 +82,6 @@ export interface Answers {
 
   // ── Étape 4 — Tes priorités ─────────────────────────────────────────────
   priority?: Priority;
-
-  // ── Coordonnées — collectées à la fin, avant le calcul ──────────────────
-  fullName?: string;
-  email?: string;
-  phone?: string;
 }
 
 // ── Scoring ─────────────────────────────────────────────────────────────────
@@ -138,6 +133,8 @@ export type LeadType = "vente_achat";
 
 export interface LeadPayload {
   name: string;
+  firstName?: string;
+  lastName?: string;
   phone?: string;
   email: string;
   consent: boolean;
