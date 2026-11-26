@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useMemo, useRef, useState } from "react";
-import { getVisibleQuestions, isAnswered } from "@/lib/questions";
+import { getVisibleQuestions, isAnswered, isDisqualified } from "@/lib/questions";
 import { trackStep } from "@/lib/track";
 import { BRAND } from "@/lib/brand";
 import type { Answers } from "@/lib/types";
@@ -12,6 +12,7 @@ import RegionMultiSearch from "./questions/RegionMultiSearch";
 
 interface Props {
   onComplete: (answers: Answers) => void;
+  onDisqualified: () => void;
   onExit: () => void;
 }
 
@@ -19,6 +20,7 @@ const AUTO_ADVANCE_MS = 220;
 
 // Libellés d'étape (Clarity Scanner).
 const STEP_NAMES: Record<string, string> = {
+  hasBrokerContract: "contrat_courtage_existant",
   reasonForChange: "raison_changement",
   searchStage: "etape_recherche",
   currentPropertyType: "type_propriete_actuelle",
@@ -32,6 +34,7 @@ const STEP_NAMES: Record<string, string> = {
 
 // Champs dont la valeur est un choix prédéfini → sûr à transmettre.
 const CHOICE_FIELDS = new Set([
+  "hasBrokerContract",
   "reasonForChange",
   "searchStage",
   "currentPropertyType",
@@ -50,7 +53,7 @@ function trackAnswer(partial: Partial<Answers>) {
   trackStep(STEP_NAMES[field], value);
 }
 
-export default function QualificationForm({ onComplete, onExit }: Props) {
+export default function QualificationForm({ onComplete, onDisqualified, onExit }: Props) {
   const [answers, setAnswers] = useState<Answers>({});
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
@@ -71,10 +74,14 @@ export default function QualificationForm({ onComplete, onExit }: Props) {
     if (current && !current.autoAdvance) {
       trackStep(STEP_NAMES[current.id] ?? current.id);
     }
+    if (isDisqualified(answers)) {
+      onDisqualified();
+      return;
+    }
     setDirection(1);
     if (isLast) submit();
     else setIndex((i) => Math.min(visible.length - 1, i + 1));
-  }, [current, isLast, submit, visible.length]);
+  }, [current, isLast, submit, visible.length, answers, onDisqualified]);
 
   const goPrev = useCallback(() => {
     if (autoAdvanceTimer.current) clearTimeout(autoAdvanceTimer.current);
@@ -94,6 +101,10 @@ export default function QualificationForm({ onComplete, onExit }: Props) {
         trackAnswer(partial);
         if (autoAdvanceTimer.current) clearTimeout(autoAdvanceTimer.current);
         autoAdvanceTimer.current = setTimeout(() => {
+          if (isDisqualified(nextAnswers)) {
+            onDisqualified();
+            return;
+          }
           setDirection(1);
           setIndex((i) => {
             const visibleAfter = getVisibleQuestions(nextAnswers);
@@ -106,7 +117,7 @@ export default function QualificationForm({ onComplete, onExit }: Props) {
         }, delayMs);
       }
     },
-    [answers, onComplete]
+    [answers, onComplete, onDisqualified]
   );
 
   if (!current) return null;
@@ -231,6 +242,14 @@ function QuestionRenderer({ question, answers, onUpdate }: RendererProps) {
   const { id, choices, autoAdvance, maxRegions, regionsPlaceholder } = question;
 
   switch (id) {
+    case "hasBrokerContract":
+      return (
+        <ChoiceQuestion
+          choices={choices!}
+          value={answers.hasBrokerContract}
+          onChange={(v) => onUpdate({ hasBrokerContract: v as Answers["hasBrokerContract"] }, !!autoAdvance)}
+        />
+      );
     case "reasonForChange":
       return (
         <ChoiceQuestion

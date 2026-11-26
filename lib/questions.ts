@@ -1,6 +1,7 @@
 import type { Answers } from "./types";
 
 export type QuestionId =
+  | "hasBrokerContract"
   | "reasonForChange"
   | "searchStage"
   | "currentPropertyType"
@@ -33,6 +34,19 @@ export interface QuestionDef {
 }
 
 export const QUESTIONS: QuestionDef[] = [
+  // ── Admissibilité ─────────────────────────────────────────────────────
+  {
+    id: "hasBrokerContract",
+    kind: "choice",
+    title: "As-tu actuellement un contrat de courtage signé avec un autre courtier immobilier ?",
+    subtitle: "Pour la vente de ta propriété actuelle ou l'achat de la prochaine.",
+    autoAdvance: true,
+    choices: [
+      { value: "non", label: "Non, je n'ai pas de contrat signé" },
+      { value: "oui", label: "Oui, j'ai un contrat signé avec un autre courtier" },
+    ],
+  },
+
   // ── Étape 1 — Ton projet ────────────────────────────────────────────────
   {
     id: "reasonForChange",
@@ -157,8 +171,16 @@ export function getVisibleQuestions(answers: Answers): QuestionDef[] {
   return QUESTIONS.filter((q) => !q.showIf || q.showIf(answers));
 }
 
+// Plus aucune question n'est posée après une réponse disqualifiante : la loi
+// sur le courtage immobilier interdit de représenter ou de solliciter une
+// personne déjà liée par un contrat de courtage actif avec un autre courtier.
+export function isDisqualified(a: Answers): boolean {
+  return a.hasBrokerContract === "oui";
+}
+
 export function isAnswered(q: QuestionDef, a: Answers): boolean {
   switch (q.id) {
+    case "hasBrokerContract": return !!a.hasBrokerContract;
     case "reasonForChange": return !!a.reasonForChange;
     case "searchStage": return !!a.searchStage;
     case "currentPropertyType": return !!a.currentPropertyType;

@@ -9,6 +9,8 @@
 // avec les avantages qui la justifient selon les réponses données.
 // ============================================================================
 
+export type HasBrokerContract = "oui" | "non";
+
 export type ReasonForChange =
   | "plus_espace"
   | "plus_petite"
@@ -65,6 +67,9 @@ export type Region = {
 };
 
 export interface Answers {
+  // ── Admissibilité ─────────────────────────────────────────────────────
+  hasBrokerContract?: HasBrokerContract;
+
   // ── Étape 1 — Ton projet ───────────────────────────────────────────────
   reasonForChange?: ReasonForChange;
   searchStage?: SearchStage;
